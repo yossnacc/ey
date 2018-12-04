@@ -1,0 +1,48 @@
+ {% trans_default_domain 'FOSUserBundle' %}
+
+
+
+
+
+
+
+
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+                <p class="form-title">Sign In CRM</p>
+                <form action="{{ path("fos_user_security_check") }}" method="post" class="login">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
+
+                    {% if error %}
+                        <div style="color:white;"><b>{{ error.messageKey|trans(error.messageData, 'security') }}</b></div>
+                    {% endif %}
+
+                    <input type="text" id="username" placeholder="Username or E-mail" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+                    <input type="password" id="password" placeholder="Password" name="_password" required="required" autocomplete="current-password" />
+                    <input type="submit" class="btn btn-success btn-sm"  id="_submit" name="_submit" value="{{ 'Connexion'|trans }}" />
+
+
+                    <div class="remember-forgot">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" checked="" />Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                              <div class="col-md-6 forgot-pass-content">
+                           <!-- <a href="{{ path('fos_user_resetting_request') }}" class="forgot-pass">Forgot Password</a> -->
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
