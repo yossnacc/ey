@@ -3,8 +3,8 @@ app:
     type: annotation
 
 app_index:
-    path: /application
-    controller: AppBundle:Default:index
+    path: /
+    controller: AppBundle:Admin:index
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
