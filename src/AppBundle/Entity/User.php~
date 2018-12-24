@@ -31,28 +31,4 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
-
-    /**
-     * Set statut
-     *
-     * @param string $statut
-     *
-     * @return User
-     */
-    public function setStatut($statut)
-    {
-        $this->statut = $statut;
-
-        return $this;
-    }
-
-    /**
-     * Get statut
-     *
-     * @return string
-     */
-    public function getStatut()
-    {
-        return $this->statut;
-    }
 }
