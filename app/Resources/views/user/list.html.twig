@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+
+    <div class="container m-5 pt-4" style="justify-content: center; width: 70%">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+                </thead>
+            {% for user in users %}
+                    <tbody>
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.password }}</td>
+                        <td>
+                            <div class="pull-right">
+
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+
+
+{% endblock %}

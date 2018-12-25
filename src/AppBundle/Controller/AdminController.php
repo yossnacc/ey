@@ -19,28 +19,21 @@ class AdminController extends Controller
         return $this->render('admin/index.html.twig');
     }
 
-    public function createAction(Request $request)
+
+    public function listAction(Request $request)
     {
-        $user = new User();
-        $form = $this->createForm(UserType::class);
-        $form->handleRequest($request);
+        // Pour récupérer le service UserManager du bundle
+        $userManager = $this->get('fos_user.user_manager');
 
-        if ($form->isSubmitted()) {
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($user);
-                $em->flush();
+        // Pour récupérer la liste de tous les utilisateurs
+        $users = $userManager->findUsers();
 
-                return $this->redirectToRoute('app_index');
+        return $this->render('user/list.html.twig', array(
+            'users'           => $users,
 
-            }}
+        ));
 
-        return $this->render(
-            'user/add.html.twig',
-            [
-                'form' => $form->createView(),
 
-            ]
-        );
+
     }
 }

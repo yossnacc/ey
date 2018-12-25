@@ -6,9 +6,9 @@ app_index:
     path: /
     controller: AppBundle:Admin:index
 
-app_user_create:
-    path: /user/create
-    controller: AppBundle:Admin:create
+app_user_list:
+    path: /users/list
+    controller: AppBundle:Admin:list
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
