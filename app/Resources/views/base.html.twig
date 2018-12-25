@@ -45,7 +45,7 @@
     
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Utilisateurs</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Ajouter un utlisateur</a></li>
+                <li><a class="treeview-item" href="{{ path('fos_user_registration_register') }}"><i class="icon fa fa-circle-o"></i> Ajouter un utlisateur</a></li>
                 <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Lister les utilisateurs</a></li>
             </ul>
         </li>
@@ -53,7 +53,11 @@
 </aside>
 
 
+
+<main class="app-content">
 {% block body %}{% endblock %}
+</main>
+
 {% block javascripts %}{% endblock %}
 
 <!-- Essential javascripts for application to work-->
