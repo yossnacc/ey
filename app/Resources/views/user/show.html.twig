@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+
+    <div class="container m-5 pt-4" style="justify-content: center; width: 70%">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Enabled</th>
+                <th>Password</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.enabled }}</td>
+                <td>{{ user.password}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

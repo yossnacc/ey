@@ -10,6 +10,18 @@ app_user_list:
     path: /users/list
     controller: AppBundle:Admin:list
 
+app_user_show:
+    path: /user/{id}
+    methods: [GET]
+    defaults:
+        _controller: AppBundle:Admin:show
+
+app_user_delete:
+    path: /users/{id}/delete
+    methods: [GET, POST]
+    defaults:
+        _controller: AppBundle:Admin:Delete
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

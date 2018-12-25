@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+<div class="container m-5 pt-4" style="justify-content: center; width: 70%">
+    <h2>Supprimer un client</h2>
+    <p>
+        Etes-vous certain de vouloir supprimer le client "{{ user.username }}" ?
+    </p>
+
+    <form action="{{ path('app_user_delete', {'id': user.id}) }}" method="post">
+        <a href="{{ path('app_user_show', {'id': user.id}) }}" class="btn btn-default">
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            {# Ceci va générer le champ CSRF #}
+            {{ form_rest(form) }}
+    </form>
+</div>
+{% endblock %}
