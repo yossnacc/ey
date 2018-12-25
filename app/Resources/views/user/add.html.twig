@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+
+    <div class="container m-5 pt-4" style="justify-content: center; width: 70%">
+        <h3 >Ajout d'un user</h3>
+
+        <div class="well">
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+            {# Les erreurs générales du formulaire. #}
+            {{ form_errors(form) }}
+
+            <div class="form-group">
+                {{ form_label(form.username, "Username", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                {{ form_errors(form.username) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                {{ form_errors(form.email) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.password, "Password", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                {{ form_errors(form.password) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+    {{ form_end(form) }}
+    </div>
+{% endblock %}

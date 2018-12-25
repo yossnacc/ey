@@ -20,7 +20,7 @@
     <ul class="app-nav">
       
        
-        <!-- User Menu-->
+        <!-- user Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
                 <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
@@ -45,16 +45,18 @@
     
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Utilisateurs</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Ajouter un utlisateur</a></li>
+                <li><a class="treeview-item" href={{ path('app_user_create') }}><i class="icon fa fa-circle-o"></i> Ajouter un utlisateur</a></li>
                 <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Lister les utilisateurs</a></li>
             </ul>
         </li>
     </ul>
 </aside>
 
+<div class="container">
 
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
+</div>
 
 <!-- Essential javascripts for application to work-->
 <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>

@@ -6,6 +6,10 @@ app_index:
     path: /
     controller: AppBundle:Admin:index
 
+app_user_create:
+    path: /user/create
+    controller: AppBundle:Admin:create
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
