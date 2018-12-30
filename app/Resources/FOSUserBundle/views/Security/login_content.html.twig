@@ -1,43 +1,95 @@
  {% trans_default_domain 'FOSUserBundle' %}
 
+ <!DOCTYPE html>
+ <html lang="fr">
+
+ <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <!-- Meta, title, CSS, favicons, etc. -->
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <title> CRM </title>
+
+     <!-- Bootstrap core CSS -->
+     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/fonts/css/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/maps/jquery-jvectormap-2.0.3.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/icheck/flat/green.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/floatexamples.css') }}">
+
+     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+     <script src="{{ asset('assets/js/nprogress.js') }}"></script>
+
+     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+     <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+     <![endif]-->
+ </head>
 
 
- <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="wrap">
-                <p class="form-title">Sign In CRM</p>
-                <form action="{{ path("fos_user_security_check") }}" method="post" class="login">
-                    {% if csrf_token %}
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                    {% endif %}
+<body>
 
-                    {% if error %}
-                        <div style="color:white;"><b>{{ error.messageKey|trans(error.messageData, 'security') }}</b></div>
-                    {% endif %}
+     <div id="wrapper">
+         <div id="login" class="animate form">
+             <section class="login_content">
+                 <form action="{{ path("fos_user_security_login") }}" method="post" class="login">
+                     {% if csrf_token %}
+                         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                     {% endif %}
 
-                    <input type="text" id="username" placeholder="Username or E-mail" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
-                    <input type="password" id="password" placeholder="Password" name="_password" required="required" autocomplete="current-password" />
-                    <input type="submit" class="btn btn-success btn-sm"  id="_submit" name="_submit" value="{{ 'Connexion'|trans }}" />
+                     {% if error %}
+                         <div style="color:white;"><b>{{ error.messageKey|trans(error.messageData, 'security') }}</b></div>
+                     {% endif %}
+
+                     <h1>Login Form</h1>
+                     <div>
+                         <input type="text" class="form-control" id="username" placeholder="Username or E-mail" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+                     </div>
+                     <div>
+                         <input type="password"  class="form-control" id="password" placeholder="Password" name="_password" required="required" autocomplete="current-password" />
+                     </div>
+                     <div>
+                         <input type="submit" class="btn btn-success btn-sm submit"  id="_submit" name="_submit" value="{{ 'Connexion'|trans }}" />
+                     </div>
+                     <div class="clearfix"></div>
+                     <div class="remember-forgot">
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <div class="checkbox">
+                                     <label>
+                                         <input type="checkbox" id="remember_me" name="_remember_me" value="on" checked="" />Remember Me
+                                     </label>
+                                 </div>
+                             </div>
+                             <div class="col-md-6 forgot-pass-content">
+                                 <!-- <a href="{{ path('fos_user_resetting_request') }}" class="forgot-pass">Forgot Password</a> -->
+                             </div>
+                         </div>
+                     </div>
+                     <div class="clearfix"></div>
+                     <div class="separator">
+
+                         <p class="change_link">New to site?
+                             <a href="{{ path('fos_user_registration_register') }}" class="to_register"> Create Account </a>
+                         </p>
+                         <div class="clearfix"></div>
+                     </div>
+
+                 </form>
+                 <!-- form -->
+             </section>
+             <!-- content -->
+         </div>
+     </div>
+</body>
 
 
-                    <div class="remember-forgot">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" checked="" />Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                              <div class="col-md-6 forgot-pass-content">
-                           <!-- <a href="{{ path('fos_user_resetting_request') }}" class="forgot-pass">Forgot Password</a> -->
-                        </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
 

@@ -1,23 +1,25 @@
 
-app_index:
+app_homepage:
     path: /
     controller: AppBundle:Admin:index
 
 app_user_list:
     path: /users/list
-    controller: AppBundle:Admin:list
+    controller: AppBundle:User:list
 
 app_user_show:
     path: /user/{id}
     methods: [GET]
+    requirements:
+        id: \d+
     defaults:
-        _controller: AppBundle:Admin:show
+        _controller: AppBundle:User:show
 
 app_user_delete:
     path: /users/{id}/delete
     methods: [GET, POST]
     defaults:
-        _controller: AppBundle:Admin:Delete
+        _controller: AppBundle:User:Delete
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

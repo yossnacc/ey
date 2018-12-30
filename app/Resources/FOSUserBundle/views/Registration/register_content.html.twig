@@ -1,47 +1,81 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+<!DOCTYPE html>
+<html lang="fr">
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> CRM </title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/maps/jquery-jvectormap-2.0.3.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/icheck/flat/green.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/floatexamples.css') }}">
+
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/nprogress.js') }}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body>
+    <div id="wrapper">
+        <div id="login" class="animate form">
+            <section class="login_content">
                 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                <form>
 
-                <div class="form-group">
-                    {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                    {{ form_errors(form.email) }}
-                    <div class="col-sm-10" >
-                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    <h1>Registration Form</h1>
+                    <div>
+                        {{ form_label(form.username, "Username") }}
+                        {{ form_widget(form.username, {'attr': {'class': 'form-control', 'id': 'username',
+                            'placeholer': 'Username ', 'name': '_username', 'required': 'required', 'autocomplete': 'username' }}) }}
                     </div>
-                </div>
-                <div class="form-group" >
-                    {{ form_label(form.username, "Username", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                    {{ form_errors(form.username) }}
-                    <div class="col-sm-10">
-                        {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                    <div>
+                        {{ form_label(form.email, "Email") }}
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'id': 'email',
+                            'placeholer': 'Email ', 'name': '_email', 'required': 'required', 'autocomplete': 'email' }}) }}
                     </div>
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.plainPassword ['first'], "Mot de passe", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                    {{ form_errors(form.plainPassword['first']) }}
-                    <div class="col-sm-10">
-                        {{ form_widget(form.plainPassword['first'], {'attr': {'class': 'form-control'}}) }}
+                    <div>
+                        {{ form_label(form.plainPassword['first'], "Password") }}
+                        {{ form_widget(form.plainPassword['first'], {'attr': {'class': 'form-control', 'id': 'password',
+                            'placeholer': 'Password ', 'name': '_password', 'required': 'required' }}) }}
                     </div>
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.plainPassword['second'], "Répéter", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                    {{ form_errors(form.plainPassword['second']) }}
-                    <div class="col-sm-10">
-                        {{ form_widget(form.plainPassword['second'], {'attr': {'class': 'form-control'}}) }}
+                    <div>
+                        {{ form_label(form.plainPassword['second'], "Repeat password") }}
+                        {{ form_widget(form.plainPassword['second'], {'attr': {'class': 'form-control', 'id': 'password',
+                            'placeholer': 'Password ', 'name': '_password', 'required': 'required'}}) }}
                     </div>
-                </div>
-                <input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="DpYGwmXvoDxMlZ-HLE55u22z0tFx0DNDm0bxdOCfZPc">
-                <div class="form-group">
-                    <div class="col-sm-10">
+                    <input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="DpYGwmXvoDxMlZ-HLE55u22z0tFx0DNDm0bxdOCfZPc">
+                    <div>
                         <input class="btn btn-primary"  style="margin-left: 100px; margin-top: 10px;" type="submit" value="{{ 'registration.submit'|trans }}" />
                     </div>
-
-                </div>
-                {{ form_end(form) }}
-            </div>
+                    <div class="clearfix"></div>
+                    <div class="separator">
+                        <p class="change_link">You have already a account ?
+                            <a href="{{ path('fos_user_security_login') }}" class="to_register"> Login </a>
+                        </p>
+                        <div class="clearfix"></div>
+                    </div>
+                    {{ form_end(form) }}
+                </form>
+                <!-- form -->
+            </section>
+            <!-- content -->
         </div>
     </div>
+</body>
