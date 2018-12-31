@@ -62,6 +62,7 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
                             <li><a><i class="fa fa-home"></i> Users <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none">
                                     <li><a href={{ path('app_user_list') }}>All Users</a>
@@ -69,6 +70,7 @@
                                     <li><a href={{ path('fos_user_registration_register') }}> Add User</a>
                                 </ul>
                             </li>
+                            {% endif %}
                             <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none">
                                     <li><a href="form.html">General Form</a>
