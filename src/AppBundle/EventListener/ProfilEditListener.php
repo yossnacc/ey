@@ -29,7 +29,7 @@ class ProfilEditListener implements EventSubscriberInterface
         );
     }
 
-    public function onRegistrationSuccess(FormEvent $event)
+    public function onProfilEditSuccess(FormEvent $event)
     {
         $url = $this->router->generate('app_user_list');
 
