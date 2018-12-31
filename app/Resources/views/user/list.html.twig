@@ -31,6 +31,8 @@
                                     <th>ID</th>
                                     <th>Username</th>
                                     <th>Email</th>
+                                    <th>Roles</th>
+                                    <th>Last Login</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -39,9 +41,11 @@
                                     <td>{{ user.id }}</td>
                                     <td>{{ user.username }}</td>
                                     <td>{{ user.email }}</td>
+                                    <td>{{ user.roles|join }}</td>
+                                    <td>{{ user.lastLogin|join }}</td>
                                     <td>
                                         <div>
-                                            <a href={{ path('app_user_show',{'id': user.id }) }}> <button class="btn btn-primary" type="submit">Voir</button></a>
+                                            <a href={{ path('fos_user_profile_edit')}}> <button class="btn btn-primary" type="submit">Modifier</button></a>
                                             <a href={{ path('app_user_delete',{'id': user.id }) }}> <button class="btn btn-primary" type="submit">Supprimer</button></a>
                                         </div>
                                     </td>

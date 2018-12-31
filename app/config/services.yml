@@ -35,3 +35,9 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 
+    user.profil_edit_redirect:
+        class: AppBundle\EventListener\ProfilEditListener
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+

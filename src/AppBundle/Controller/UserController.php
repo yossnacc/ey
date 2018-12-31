@@ -13,16 +13,6 @@ use AppBundle\Form\UserType;
 class UserController extends Controller
 {
 
-    public function showAction( Request $request, $id)
-    {
-        $userManager = $this->get('fos_user.user_manager');
-        $user = $userManager->findUserBy(array('id' => $id));
-
-        return $this->render('user/show.html.twig', array(
-            'user'           => $user,
-
-        ));
-    }
 
     public function listAction(Request $request)
     {
