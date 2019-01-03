@@ -55,6 +55,13 @@ class User extends BaseUser
      */
     private $numeroTel;
 
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
+
+
     /**
      * @return string
      */
@@ -142,11 +149,6 @@ class User extends BaseUser
      */
     private $fax;
 
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
 
     /**
      * Set statut
