@@ -30,7 +30,7 @@ services:
         tags: ['controller.service_arguments']
 
     user.registration_redirect:
-        class: AppBundle\EventListener\RegistrationListener
+        class: AppBundle\EventListener\RegistrationRedirectListener
         arguments: ['@router']
         tags:
             - { name: kernel.event_subscriber }
@@ -42,8 +42,13 @@ services:
             - { name: kernel.event_subscriber }
 
     app.form.registration:
-        class: AppBundle\Form\RegistrationFormType
+        class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+
+    app.form.edit.profil:
+        class: AppBundle\Form\ProfileType
+        tags:
+            - { name: form.type, alias: app_user_edit_profile }
 
 

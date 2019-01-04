@@ -7,13 +7,6 @@ app_user_list:
     path: /users/list
     controller: AppBundle:User:list
 
-app_user_edit:
-    path: /users/edit/{id}
-    requirements:
-        id: \d+
-    defaults:
-        _controller: AppBundle:User:edit
-
 app_user_delete:
     path: /users/{id}/delete
     methods: [GET, POST]

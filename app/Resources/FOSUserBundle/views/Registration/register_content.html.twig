@@ -5,6 +5,7 @@
 {% block body %}
 
                 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                {{ form_errors(form) }}
                 <form style="margin-top: 10px">
                     <h1>Registration Form</h1>
                     <div class="container" >
@@ -60,7 +61,6 @@
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="DpYGwmXvoDxMlZ-HLE55u22z0tFx0DNDm0bxdOCfZPc">
                     <div>
                         <input class="btn btn-primary"  style="margin-left: 100px; margin-top: 10px;" type="submit" value="{{ 'registration.submit'|trans }}" />
                     </div>

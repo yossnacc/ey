@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 
-class RegistrationListener implements EventSubscriberInterface
+class RegistrationRedirectListener implements EventSubscriberInterface
 {
     private $router;
 
@@ -26,12 +26,12 @@ class RegistrationListener implements EventSubscriberInterface
     {
         return [
             FOSUserEvents::REGISTRATION_SUCCESS => [
-                ['onRegistrationSuccess', -10],
+                ['onRegistrationSuccessRedirect', -10],
             ],
         ];
     }
 
-    public function onRegistrationSuccess(FormEvent $event)
+    public function onRegistrationSuccessRedirect(FormEvent $event)
     {
         $url = $this->router->generate('app_user_list');
 

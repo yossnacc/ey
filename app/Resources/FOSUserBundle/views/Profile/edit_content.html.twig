@@ -3,33 +3,69 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
     {{ form_errors(form) }}
-    <div class="form-group">
-        {{ form_label(form.username, "Username", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.username) }}
-        <div class="col-sm-10">
-            {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+    <form style="margin-top: 10px">
+        <h1>Registration Form</h1>
+        <div class="container" >
+            <div class="row">
+                <div class="col-lg-4">
+                    <div>
+                        {{ form_label(form.username, "Nom client") }}
+                        {{ form_widget(form.username, {'attr': {'class': 'form-control', 'id': 'username',
+                            'placeholer': 'Nom client ', 'name': '_username', 'required': 'required', 'autocomplete': 'username' }}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.CP, "Code Postal") }}
+                        {{ form_widget(form.CP, {'attr': {'class': 'form-control', 'id': 'codePostal',
+                            'placeholer': 'codePostal ', 'name': '_codePostal', 'required': 'required', 'autocomplete': 'codePostal' }}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.ville, "Ville") }}
+                        {{ form_widget(form.ville, {'attr': {'class': 'form-control', 'id': 'ville',
+                            'placeholer': 'Ville ', 'name': '_ville', 'required': 'required', 'autocomplete': 'ville' }}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.numeroTel, "Tel") }}
+                        {{ form_widget(form.numeroTel, {'attr': {'class': 'form-control', 'id': 'numeroTel',
+                            'placeholer': 'Tel ', 'name': '_numeroTel', 'required': 'required', 'autocomplete': 'numeroTel' }}) }}
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div>
+                        {{ form_label(form.fax, "Fax") }}
+                        {{ form_widget(form.fax, {'attr': {'class': 'form-control', 'id': 'fax',
+                            'placeholer': 'Fax ', 'name': '_fax', 'required': 'required', 'autocomplete': 'fax' }}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.email, "Email") }}
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'id': 'email',
+                            'placeholer': 'Email ', 'name': '_email', 'required': 'required', 'autocomplete': 'email' }}) }}
+                    </div>
+                    <div>
+                    {#{{ form_label(form.username, "Responsable") }}
+                       {{ form_widget(form.username, {'attr': {'class': 'form-control', 'id': 'username',
+                           'placeholer': 'Username ', 'name': '_username', 'required': 'required', 'autocomplete': 'username' }}) }}
+                    </div>#}
+                        <div>
+                            {{ form_label(form.plainPassword['first'], "Password") }}
+                            {{ form_widget(form.plainPassword['first'], {'attr': {'class': 'form-control', 'id': 'password',
+                                'placeholer': 'Password ', 'name': '_password', 'required': 'required' }}) }}
+                        </div>
+                        <div>
+                            {{ form_label(form.plainPassword['second'], "Repeat password") }}
+                            {{ form_widget(form.plainPassword['second'], {'attr': {'class': 'form-control', 'id': 'password',
+                                'placeholer': 'Password ', 'name': '_password', 'required': 'required'}}) }}
+                        </div>
+                    </div>
+                {{ form_rest(form) }}
+                <div>
+                    <button class="btn btn-primary" type="submit">Modifier</button>
+                </div>
+                {{ form_end(form) }}
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.email) }}
-        <div class="col-sm-10">
-            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
-    <div class="form-group">
-        {{ form_label(form.current_password, "Mot de passe atuel", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.current_password) }}
-        <div class="col-sm-10">
-            {{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
-    {{ form_rest(form) }}
-    <div>
-        <button class="btn btn-primary" type="submit">Modifier</button>
-    </div>
-{{ form_end(form) }}
+    </form>
 
 {% endblock %}
